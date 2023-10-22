@@ -38,6 +38,7 @@ def scan_and_warp(image_path):
     contours, _ = cv2.findContours(edged.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
     contours = sorted(contours, key=cv2.contourArea, reverse=True)[:5]
 
+    screenCnt = None
     for contour in contours:
         epsilon = 0.02 * cv2.arcLength(contour, True)
         approx = cv2.approxPolyDP(contour, epsilon, True)
@@ -45,13 +46,16 @@ def scan_and_warp(image_path):
             screenCnt = approx
             break
 
-    cv2.drawContours(image, [screenCnt], -1, (0, 255, 0), 2)
-    warped = perspective_transform(orig, screenCnt.reshape(4, 2) * ratio)
+    if screenCnt is not None:
+        cv2.drawContours(image, [screenCnt], -1, (0, 255, 0), 2)
+        warped = perspective_transform(orig, screenCnt.reshape(4, 2) * ratio)
 
-    return warped
+        return warped
+    
+    return None
 
 def main():
-    image_path = 'Notebook\data\test.jpg'
+    image_path = 'Notebook/data/test.jpg'
     warped_image = scan_and_warp(image_path)
     cv2.imshow("Scanned Image", warped_image)
     cv2.waitkey(0)
