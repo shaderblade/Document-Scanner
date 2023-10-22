@@ -5,3 +5,5 @@
    ```bash
    python app.py
    ```
+
+2. Open your web browser and visit http://localhost:5000 to access the web app.
