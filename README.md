@@ -1,0 +1,1 @@
+A document scanning application with perspective correction made using OpenCV
