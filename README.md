@@ -1,9 +1,34 @@
-#   A document scanning application with perspective correction made using OpenCV
+# Document Scanner Web App
 
-##  Usage
-1. Run the flask application using following command  
+A web-based document scanner application built using Flask and OpenCV.
+
+## Installation
+
+1. Clone the repository and open that directory:
    ```bash
-   python app.py
+      git clone https://github.com/shaderblade/Document-Scanner
+      cd Document-Scanner
    ```
 
-2. Open your web browser and visit http://localhost:5000 to access the web app.
+2. Create a virtual environment (Recommended)
+   ```bash
+      python -m venv venv
+      source venv/bin/activate  # On Windows, use "venv\Scripts\activate"
+   ```
+
+3. Install the required packages
+   ```bash
+      pip install -r requirements.txt
+   ```
+
+4. Run the application
+   ```bash
+      python app.py
+   ```
+
+
+## Usage
+- Open your web browser and navigate to http://localhost:5000.
+- Upload an image containing a document.
+- Click the "Scan" button to process the image.
+- Download the scanned document.
