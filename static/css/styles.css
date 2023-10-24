@@ -1,0 +1,59 @@
+/* Violet color for h2 */
+.text-purple {
+    color: #7856FF; /* Violet color */
+}
+
+/* Floating effect for images */
+.floating {
+    transition: transform 0.2s ease-in-out;
+}
+
+.floating:hover {
+    transform: translateY(-5px); /* Adjust as needed */
+}
+
+/* Style for the "Upload" button */
+.btn-upload {
+    background-color: #7856FF;
+    color: #fff;
+    cursor: pointer;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.btn-upload:hover {
+    background-color: #937BFF; /* Brighter violet color on hover */
+}
+
+/* Make buttons violet and brighter */
+.btn-violet {
+    background-color: #7856FF; /* Violet color */
+    color: #ffffff; /* Text color for light backgrounds */
+    border: none;
+    transition: background-color 0.3s;
+}
+
+.btn-violet:hover {
+    background-color: #937BFF; /* Brighter violet color on hover */
+}
+
+/* Add shadow to images */
+.shadow {
+    box-shadow: 5px 5px 10px #888888; /* You can adjust the shadow as needed */
+}
+
+/* Center everything vertically */
+.d-flex.align-items-center {
+    min-height: 100vh;
+}
+
+/* Discord background color */
+.discord-background {
+    background-color: #36393f; /* Discord background color */
+    color: #ffffff; /* Text color for light backgrounds */
+}
+
+
+

@@ -1,24 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Scanner</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Include Custom CSS -->
+    <link rel="stylesheet" href="../static/css/styles.css">
 </head>
-<body>
-    <div>
-        <h1>Document Scanner</h1>
+<body class="discord-background d-flex align-items-center justify-content-center">
+    <div class="container p-4">
+        <h1 class="text-center pb-4">Document Scanner</h1>
+        <div class="text-center">
+            <div>
+                <h2 class="smaller-h2 text-purple">Your document is ready</h2>
+            </div>
+            <div class="text-center">
+                <img src="{{ scanned_image_path }}" alt="Scanned Document" class="img-fluid shadow floating" style="max-width: 300px;">
+            </div>
+            <div class="text-center pt-4">
+                <a href="/download?scanned_image_path={{ scanned_image_path }}" download="{{ filename }}">
+                    <button class="btn btn-violet">Download</button>
+                </a>
+            </div>
+        </div>
     </div>
-    <div>
-        <div>
-            <h2>Your document is ready</h2>
-        </div>
-        <div>
-            <img src="{{ scanned_image_path }}" alt="Scanned Document">
-        </div>
-        <div>
-            <a href="/download?scanned_image_path={{ scanned_image_path }}" download="{{ filename }}">
-                <button>Download</button>
-            </a>
-        </div>
-    </div>
+    <!-- Include Bootstrap JS and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
 </body>
 </html>

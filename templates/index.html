@@ -1,41 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Scanner</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/styles.css">
 </head>
-<body>
-    <div>
-        <div>
-            <h1>Document Scanner</h1>
+<body class="discord-background d-flex align-items-center justify-content-center">
+    <div class="container p-4">
+        <div class="text-center">
+            <h1 class="pb-4">Document Scanner</h1>
         </div>
-        <div>
+        <div class="text-center">
             {% if not uploaded_image %}
-                <div>
-                    <div>
-                        <h2>Upload the image containing the document</h2>
+                <div class="pb-4">
+                    <div class="text-center">
+                        <h2 class="smaller-h2 text-purple">Upload the image containing the document</h2>
                     </div>
-                    <div>
+                    <div class="text-center">
                         <form method="POST" action="/upload" enctype="multipart/form-data">
-                            <input type="file" name="file" accept=".jpg, .png, .jpeg" onchange="this.form.submit()">
+                            <label for="file" class="btn btn-purple btn-upload">
+                                Upload<input type="file" name="file" accept=".jpg, .png, .jpeg" id="file" class="d-none" onchange="this.form.submit()">
+                            </label>
                         </form>
                     </div>
                 </div>
             {% else %}
-                <div>
-                    <div>
-                        <img src="{{ uploaded_image }}" alt="Uploaded Image">
+                <div class="pb-4">
+                    <div class="text-center">
+                        <img src="{{ uploaded_image }}" alt="Uploaded Image" class="img-fluid shadow floating" style="max-width: 300px;">
                     </div>
-                    <div>
-                        <div>
+                    <div class="d-flex justify-content-center pt-4">
+                        <div class="pr-2">
                             <form action="/remove" method="post">
                                 <input type="hidden" name="uploaded_image" value="{{ uploaded_image }}">
-                                <button type="submit" name="action" value="remove">Remove</button>
+                                <button type="submit" name="action" value="remove" class="btn btn-violet">Remove</button>
                             </form>
                         </div>
-                        <div>
+                        <div class="pl-2">
                             <form action="/scan" method="post">
                                 <input type="hidden" name="uploaded_image" value="{{ uploaded_image }}">
-                                <button type="submit" name="action" value="scan">Scan</button>
+                                <button type="submit" name="action" value="scan" class="btn btn-violet">Scan</button>
                             </form>
                         </div>
                     </div>
@@ -43,5 +49,8 @@
             {% endif %}
         </div>
     </div>
+    <!-- Include Bootstrap JS and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
 </body>
 </html>
