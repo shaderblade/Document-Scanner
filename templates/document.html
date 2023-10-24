@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Scanner</title>
+</head>
+<body>
+    <div>
+        <h1>Document Scanner</h1>
+    </div>
+    <div>
+        <div>
+            <h2>Your document is ready</h2>
+        </div>
+        <div>
+            <img src="{{ scanned_image_path }}" alt="Scanned Document">
+        </div>
+        <div>
+            <a href="/download?scanned_image_path={{ scanned_image_path }}" download="{{ filename }}">
+                <button>Download</button>
+            </a>
+        </div>
+    </div>
+</body>
+</html>

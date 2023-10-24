@@ -49,17 +49,19 @@ def scan_and_warp(image_path):
     if screenCnt is not None:
         cv2.drawContours(image, [screenCnt], -1, (0, 255, 0), 2)
         warped = perspective_transform(orig, screenCnt.reshape(4, 2) * ratio)
-
         return warped
-    
+
     return None
 
 def main():
-    image_path = 'Notebook/data/test.jpg'
+    image_path = 'Notebook/data/test.jpg'  # Make sure this path is correct
     warped_image = scan_and_warp(image_path)
-    cv2.imshow("Scanned Image", warped_image)
-    cv2.waitkey(0)
-    cv2.destroyAllWindows()
+    if warped_image is not None:
+        cv2.imshow("Scanned Image", warped_image)
+        cv2.waitKey(0)
+        cv2.destroyAllWindows()
+    else:
+        print("No document found in the image.")
 
 if __name__ == '__main__':
     main()

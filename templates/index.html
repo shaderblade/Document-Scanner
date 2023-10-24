@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Scanner</title>
+</head>
+<body>
+    <div>
+        <div>
+            <h1>Document Scanner</h1>
+        </div>
+        <div>
+            {% if not uploaded_image %}
+                <div>
+                    <div>
+                        <h2>Upload the image containing the document</h2>
+                    </div>
+                    <div>
+                        <form method="POST" action="/upload" enctype="multipart/form-data">
+                            <input type="file" name="file" accept=".jpg, .png, .jpeg" onchange="this.form.submit()">
+                        </form>
+                    </div>
+                </div>
+            {% else %}
+                <div>
+                    <div>
+                        <img src="{{ uploaded_image }}" alt="Uploaded Image">
+                    </div>
+                    <div>
+                        <div>
+                            <form action="/remove" method="post">
+                                <input type="hidden" name="uploaded_image" value="{{ uploaded_image }}">
+                                <button type="submit" name="action" value="remove">Remove</button>
+                            </form>
+                        </div>
+                        <div>
+                            <form action="/scan" method="post">
+                                <input type="hidden" name="uploaded_image" value="{{ uploaded_image }}">
+                                <button type="submit" name="action" value="scan">Scan</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
